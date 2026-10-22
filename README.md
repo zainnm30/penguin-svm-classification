@@ -47,7 +47,7 @@ jupyter notebook notebooks/penguin_svm.ipynb
 - [x] Task 4 – 80/20 train–test split and `StandardScaler`
 - [x] Task 5 – Linear SVM (`C=1`)
 - [x] Task 6 – Accuracy, confusion matrix, classification report
-- [ ] Task 7 – Linear SVM decision boundary and support vectors
+- [x] Task 7 – Linear SVM decision boundary and support vectors
 - [ ] Task 8 – RBF SVM vs Linear SVM
 - [ ] Task 9 – Test `C = 0.1, 1, 10, 100`
 - [ ] Required questions and final observation
