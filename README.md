@@ -44,7 +44,7 @@ jupyter notebook notebooks/penguin_svm.ipynb
 - [x] **Task 1** – Load dataset; display `head()`, `shape`, `info()`, missing values
 - [x] Task 2 – Drop missing records; choose two input features
 - [x] Task 3 – Scatter plot of the three species and two observations
-- [ ] Task 4 – 80/20 train–test split and `StandardScaler`
+- [x] Task 4 – 80/20 train–test split and `StandardScaler`
 - [ ] Task 5 – Linear SVM (`C=1`)
 - [ ] Task 6 – Accuracy, confusion matrix, classification report
 - [ ] Task 7 – Linear SVM decision boundary and support vectors
