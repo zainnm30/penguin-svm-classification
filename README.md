@@ -54,7 +54,55 @@ jupyter notebook notebooks/penguin_svm.ipynb
 
 ## Results
 
-*To be added as tasks are completed.*
+Features used: **culmen length** and **culmen depth** (334 penguins after `dropna()`; 80/20 stratified split, `random_state=42`, `StandardScaler` fitted on the training set only).
+
+### Linear vs RBF SVM (C = 1)
+
+| Model | C | Train accuracy | Test accuracy | Support vectors |
+|---|---|---|---|---|
+| Linear SVM | 1 | 0.9588 | 0.9701 | 43 |
+| RBF SVM | 1 | 0.9551 | 0.9701 | 53 |
+
+Both models classify **65 of 67** test penguins correctly. The only errors are 2 Chinstrap penguins predicted as Gentoo.
+
+### Effect of C
+
+| Kernel | C | Train acc. | Test acc. | Support vectors | 5-fold CV acc. |
+|---|---|---|---|---|---|
+| Linear | 0.1 | 0.9625 | 0.9701 | 88 | 0.9512 |
+| Linear | 1 | 0.9588 | 0.9701 | 43 | 0.9549 |
+| Linear | 10 | 0.9700 | 0.9552 | 26 | 0.9550 |
+| Linear | 100 | 0.9813 | 0.9552 | 22 | 0.9474 |
+| RBF | 0.1 | 0.9551 | 0.9552 | 123 | 0.9549 |
+| RBF | 1 | 0.9551 | 0.9701 | 53 | 0.9399 |
+| RBF | 10 | 0.9700 | 0.9552 | 35 | 0.9437 |
+| RBF | 100 | 0.9813 | 0.9701 | 27 | 0.9437 |
+
+### Key findings
+
+- **Gentoo** is the easiest species to separate (low culmen depth). **Adelie and Chinstrap** overlap the most, and are separated mainly by culmen length.
+- RBF gave **no accuracy gain** over Linear here, because the classes are almost linearly separable in these two features.
+- **C = 1** gave the best test accuracy for both kernels (RBF tied with C = 100). Larger C raised training accuracy without improving test accuracy. The differences between settings are about one test penguin, so C = 1 is a sensible choice but not a decisive one.
+- **Feature scaling matters.** Without it, test accuracy dropped to 95.52% (Linear) and 92.54% (RBF), against 97.01% with scaling.
+
+### Figures
+
+| Scatter plot | Linear SVM boundary |
+|---|---|
+| ![Scatter plot](images/scatter_plot.png) | ![Linear boundary](images/boundary_linear.png) |
+
+| RBF SVM boundary | Effect of C |
+|---|---|
+| ![RBF boundary](images/boundary_rbf.png) | ![C effect](images/c_effect.png) |
+
+| Confusion matrix (Linear) | Confusion matrix (RBF) |
+|---|---|
+| ![Linear confusion matrix](images/confusion_matrix_linear.png) | ![RBF confusion matrix](images/confusion_matrix_rbf.png) |
+
+### Limitations
+
+Single train/test split with only 67 test penguins; only two of the four features were used; RBF `gamma` was not tuned.
+
 
 ## Author
 
