@@ -49,7 +49,7 @@ jupyter notebook notebooks/penguin_svm.ipynb
 - [x] Task 6 – Accuracy, confusion matrix, classification report
 - [x] Task 7 – Linear SVM decision boundary and support vectors
 - [x] Task 8 – RBF SVM vs Linear SVM
-- [ ] Task 9 – Test `C = 0.1, 1, 10, 100`
+- [x] Task 9 – Test `C = 0.1, 1, 10, 100`
 - [ ] Required questions and final observation
 
 ## Results
